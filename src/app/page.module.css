@@ -228,3 +228,10 @@
     transform: rotate(0deg);
   }
 }
+.cardContainer {
+  margin-top:15px;
+  display: flex;
+  justify-content: space-around; /* Adjust spacing between cards */
+  flex-wrap: wrap; /* Ensures responsiveness */
+  gap: 20px; /* Optional: Adds spacing between cards */
+}

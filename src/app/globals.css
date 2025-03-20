@@ -90,8 +90,11 @@ body {
 }
 
 body {
-  background-color: rgb(247, 245, 242);
+  color: rgb(var(--foreground-rgb));
+  background: black; /* Set background to bisque */
+  margin-top: 40px;
 }
+
 
 a {
   color: inherit;
