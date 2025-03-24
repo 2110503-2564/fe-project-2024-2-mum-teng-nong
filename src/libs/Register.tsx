@@ -24,7 +24,7 @@ const Register: React.FC = () => {
     sex: 'undefined'
   });
   const [message, setMessage] = useState<string>('');
-  const [isRegistered, setIsRegistered] = useState<boolean>(false); // State ใหม่สำหรับสถานะปุ่ม
+  const [isRegistered, setIsRegistered] = useState<boolean>(false);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -66,8 +66,8 @@ const Register: React.FC = () => {
 
       const data: RegisterResponse = await response.json();
       if (response.ok) {
-        setMessage('Registration successful!'); // ไม่แสดง token
-        setIsRegistered(true); // เปลี่ยนสถานะปุ่ม
+        setMessage('Registration successful!');
+        setIsRegistered(true);
         setFormData({
           name: '',
           email: '',
@@ -77,52 +77,52 @@ const Register: React.FC = () => {
         });
       } else {
         setMessage(data.message || 'Registration failed.');
-        setIsRegistered(false); // รีเซ็ตสถานะปุ่มถ้าล้มเหลว
+        setIsRegistered(false);
       }
     } catch (error) {
       setMessage('An error occurred. Please try again.');
-      setIsRegistered(false); // รีเซ็ตสถานะปุ่มถ้ามี error
+      setIsRegistered(false);
     }
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-900">
       <div className="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md">
-        <h2 className="text-2xl font-bold text-white text-center mb-6">Register</h2>
+        <h2 className="text-2xl font-bold text-white text-center mb-8">Register</h2>
         {message && (
           <p
-            className={`text-center mb-4 ${
+            className={`text-center mb-6 ${
               isRegistered ? 'text-green-400' : 'text-red-400'
             }`}
           >
             {message}
           </p>
         )}
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-8">
           <div>
-            <label className="text-white block mb-2">Name:</label>
+            <label className="text-white block mb-2 font-medium">Name:</label>
             <input
               type="text"
               name="name"
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 bg-gray-700 text-black rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
           <div>
-            <label className="text-white block mb-2">Email:</label>
+            <label className="text-white block mb-2 font-medium">Email:</label>
             <input
               type="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 bg-gray-700 text-black rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
           <div>
-            <label className="text-white block mb-2">Password:</label>
+            <label className="text-white block mb-2 font-medium">Password:</label>
             <input
               type="password"
               name="password"
@@ -130,27 +130,27 @@ const Register: React.FC = () => {
               onChange={handleChange}
               minLength={6}
               required
-              className="w-full px-4 py-2 bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 bg-gray-700 text-black rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
           <div>
-            <label className="text-white block mb-2">Phone Number:</label>
+            <label className="text-white block mb-2 font-medium">Phone Number:</label>
             <input
               type="text"
               name="phonenum"
               value={formData.phonenum}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 bg-gray-700 text-black rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
           <div>
-            <label className="text-white block mb-2">Sex:</label>
+            <label className="text-white block mb-2 font-medium">Sex:</label>
             <select
               name="sex"
               value={formData.sex}
               onChange={handleChange}
-              className="w-full px-4 py-2 bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 bg-gray-700 text-black rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               <option value="undefined">Undefined</option>
               <option value="male">Male</option>
@@ -160,7 +160,7 @@ const Register: React.FC = () => {
           </div>
           <button
             type="submit"
-            className={`w-full py-2 text-white font-semibold rounded-md transition duration-300 ${
+            className={`w-full py-3 text-white font-semibold rounded-md transition duration-300 ${
               isRegistered
                 ? 'bg-green-600 hover:bg-green-700'
                 : 'bg-blue-600 hover:bg-blue-700'
