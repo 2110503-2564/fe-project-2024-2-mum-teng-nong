@@ -11,3 +11,11 @@ declare module "next-auth" {
         }
     }
 }
+
+import { Session } from "next-auth";
+
+declare module "next-auth" {
+    interface Session {
+        accessToken?: string; // เพิ่ม accessToken เข้าไปใน Session type
+    }
+}

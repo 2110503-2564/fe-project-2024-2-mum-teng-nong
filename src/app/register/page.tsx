@@ -1,6 +1,6 @@
 'use client'
 // app/register/page.tsx
-import Register from '../../components/Register';
+import Register from '../../libs/Register';
 
 export default function RegisterPage() {
   return (

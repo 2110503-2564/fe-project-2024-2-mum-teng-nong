@@ -19,6 +19,7 @@ export const authOptions:AuthOptions = {
             async authorize(credentials, req) {
               if(!credentials) return null
               const user = await userLogIn(credentials.email,credentials.password)
+              console.log("User from userLogIn:", user);
               // Add logic here to look up the user from the credentials supplied
               if (user) {
                 // Any object returned will be saved in `user` property of the JWT

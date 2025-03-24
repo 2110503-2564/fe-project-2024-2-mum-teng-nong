@@ -2,6 +2,7 @@
 
 import { useSession, signIn, signOut } from "next-auth/react";
 import TopMenuItem from "./TopMenuItem";
+import getUserProfile from "@/libs/getUserProfile";
 
 export default function TopMenu() {
     const { data: session } = useSession();
@@ -23,12 +24,20 @@ export default function TopMenu() {
                 {/* Right Section: Auth Links */}
                 <div className="flex-1 flex justify-end space-x-4">
                     {session ? (
-                        <button
-                            onClick={() => signOut()}
-                            className="px-4 py-2 bg-red-500 hover:bg-red-700 text-white text-sm rounded-md transition duration-300 transform hover:scale-105"
-                        >
-                            Sign-Out ({session.user.name})
-                        </button>
+                        <>
+                            <button
+                                onClick={() => window.location.href = "/me"}
+                                className="px-4 py-2 bg-gray-500 hover:bg-yellow-500 text-white text-sm rounded-md transition duration-300 transform hover:scale-105"
+                            >
+                                Me
+                            </button>
+                            <button
+                                onClick={() => signOut()}
+                                className="px-4 py-2 bg-red-500 hover:bg-red-700 text-white text-sm rounded-md transition duration-300 transform hover:scale-105"
+                            >
+                                Sign-Out
+                            </button>
+                        </>
                     ) : (
                         <>
                             <button
