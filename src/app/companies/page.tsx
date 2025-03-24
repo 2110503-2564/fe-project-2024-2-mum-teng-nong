@@ -5,7 +5,7 @@ export default async function CompaniesPage() {
     const companies = await getCompanies();
 
     return (
-        <div className="mt-10">
+        <div className="mt-10 text-white">
             <h1 className="text-2xl font-bold mb-4">Explore {companies.count} models in our catalog</h1>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

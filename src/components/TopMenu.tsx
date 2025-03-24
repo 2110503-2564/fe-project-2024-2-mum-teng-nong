@@ -21,21 +21,29 @@ export default function TopMenu() {
                 </div>
 
                 {/* Right Section: Auth Links */}
-                <div className="flex-1 flex justify-end">
+                <div className="flex-1 flex justify-end space-x-4">
                     {session ? (
                         <button
                             onClick={() => signOut()}
-                            className="px-4 py-2 bg-red-500 hover:bg-red-700 text-white text-sm rounded-md transition"
+                            className="px-4 py-2 bg-red-500 hover:bg-red-700 text-white text-sm rounded-md transition duration-300 transform hover:scale-105"
                         >
                             Sign-Out ({session.user.name})
                         </button>
                     ) : (
-                        <button
-                            onClick={() => signIn()}
-                            className="px-4 py-2 bg-blue-500 hover:bg-blue-700 text-white text-sm rounded-md transition"
-                        >
-                            Sign-In
-                        </button>
+                        <>
+                            <button
+                                onClick={() => signIn()}
+                                className="px-4 py-2 bg-gray-500 hover:bg-blue-500 text-white text-sm rounded-md transition duration-300 transform hover:scale-105"
+                            >
+                                Sign-In
+                            </button>
+                            <button
+                                onClick={() => window.location.href = "/register"}
+                                className="px-4 py-2 bg-gray-500 hover:bg-green-500 text-white text-sm rounded-md transition duration-300 transform hover:scale-105"
+                            >
+                                Register
+                            </button>
+                        </>
                     )}
                 </div>
             </div>
