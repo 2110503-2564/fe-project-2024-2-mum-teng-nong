@@ -1,20 +1,10 @@
-interface VenueItem {
+interface Companies {
     _id: string,
-    name: string,
-    address: string,
-    district: string,
-    province: string,
-    postalcode: string,
+    Companyname: string,
+    businessType: string,
+    size: string,
+    adress: string,
     tel: string,
-    picture: string,
-    dailyrate: number,
-    __v: number,
-    id: string
-  }
-  
-  interface VenueJson {
-    success: boolean,
-    count: number,
-    pagination: Object,
-    data: VenueItem[]
+    website: string,
+    description: string
   }

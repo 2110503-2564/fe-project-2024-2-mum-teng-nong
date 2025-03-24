@@ -1,11 +1,10 @@
-"use client"
-import TopMenuItem from "./TopMenuItem";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions";
-import Link from "next/link";
+"use client"; // ใช้ client-side rendering
 
-export default async function TopMenu() {
-    const session = await getServerSession(authOptions);
+import { useSession, signIn, signOut } from "next-auth/react";
+import TopMenuItem from "./TopMenuItem";
+
+export default function TopMenu() {
+    const { data: session } = useSession();
 
     return (
         <nav className="bg-gray-900 text-white shadow-md w-full fixed top-0 left-0 z-50">
@@ -24,17 +23,19 @@ export default async function TopMenu() {
                 {/* Right Section: Auth Links */}
                 <div className="flex-1 flex justify-end">
                     {session ? (
-                        <Link href="/api/auth/signout">
-                            <button className="px-4 py-2 bg-red-500 hover:bg-red-700 text-white text-sm rounded-md transition">
-                                Sign-Out ({session.user.name})
-                            </button>
-                        </Link>
+                        <button
+                            onClick={() => signOut()}
+                            className="px-4 py-2 bg-red-500 hover:bg-red-700 text-white text-sm rounded-md transition"
+                        >
+                            Sign-Out ({session.user.name})
+                        </button>
                     ) : (
-                        <Link href="/api/auth/signin">
-                            <button className="px-4 py-2 bg-blue-500 hover:bg-blue-700 text-white text-sm rounded-md transition">
-                                Sign-In
-                            </button>
-                        </Link>
+                        <button
+                            onClick={() => signIn()}
+                            className="px-4 py-2 bg-blue-500 hover:bg-blue-700 text-white text-sm rounded-md transition"
+                        >
+                            Sign-In
+                        </button>
                     )}
                 </div>
             </div>

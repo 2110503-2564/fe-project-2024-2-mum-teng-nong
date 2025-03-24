@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import getCompanies from "@/libs/getCompanies";
 
 export default async function CompaniesPage() {
