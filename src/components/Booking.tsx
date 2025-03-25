@@ -73,11 +73,11 @@ export default function Booking() {
         throw new Error('No token found in session');
       }
 
-      console.log('Request URL:', `https://backend-kn8m.onrender.com/api/v1/companies/${selectedCompanyId}/appointments/`);
+      console.log('Request URL:', `https://backend-gilt-five-89.vercel.app/api/v1/companies/${selectedCompanyId}/appointments/`);
       console.log('Request Body:', JSON.stringify({ apptDate: new Date(selectedDate).toISOString() }));
 
       const response = await fetch(
-        `https://backend-kn8m.onrender.com/api/v1/companies/${selectedCompanyId}/appointments/`,
+        `https://backend-gilt-five-89.vercel.app/api/v1/companies/${selectedCompanyId}/appointments/`,
         {
           method: 'POST',
           headers: {
