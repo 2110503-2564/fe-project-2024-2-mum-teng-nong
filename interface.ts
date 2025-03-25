@@ -8,3 +8,10 @@ export interface CompanyItems {
     website: string,
     description: string
   }
+export interface BookingItems{
+  _id:string,
+  apptDate:string,
+  user:string,
+  company:string,
+  createdAt:string
+}

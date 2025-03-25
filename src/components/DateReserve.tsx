@@ -88,13 +88,26 @@ export default function DateReserve({ onChange }: DateReserveProps) {
         </Select>
       </FormControl>
 
-      <LocalizationProvider dateAdapter={AdapterDayjs}>
+      {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DatePicker
           className="bg-white w-full"
           value={selectedDate}
           onChange={handleDateChange}
         />
-      </LocalizationProvider>
+      </LocalizationProvider> */}
+       <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DatePicker 
+                    className="bg-white w-full" 
+                    value={selectedDate}
+                    onChange={handleDateChange}
+                    minDate={dayjs("2022-05-10")}  
+                    maxDate={dayjs("2022-05-14")}
+                    shouldDisableDate={(date) => {
+                        const allowedDates = ["2022-05-10", "2022-05-11", "2022-05-12", "2022-05-13","2022-05-14"];
+                        return !allowedDates.includes(date.format("YYYY-MM-DD"));
+                    }}
+                />
+            </LocalizationProvider>
     </div>
   );
 }
