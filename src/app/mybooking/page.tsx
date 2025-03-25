@@ -40,7 +40,7 @@ export default function MyBookingPage() {
         const token = session?.accessToken || session?.user?.token;
         if (!token) throw new Error("No token found in session");
 
-        const response = await fetch("https:/backend-gilt-five-89.vercel.app/api/v1/appointments", {
+        const response = await fetch("https://backend-gilt-five-89.vercel.app/api/v1/appointments", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
