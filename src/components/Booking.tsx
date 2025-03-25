@@ -122,8 +122,8 @@ export default function Booking() {
   };
 
   return (
-    <main className="w-[100%] flex flex-col items-center space-y-4 mt-10 text-white relative min-h-screen">
-      <div className="text-xl font-medium">Job Fair Reservation</div>
+    <main className="w-full h-screen flex flex-col justify-center items-center space-y-4 text-white relative">
+      <div className="text-3xl font-medium">Job Fair Reservation</div>
       <div className="w-fit space-y-2">
         <DateReserve onChange={handleDateReserveChange} />
       </div>
@@ -151,7 +151,7 @@ export default function Booking() {
       </button>
       <button
         onClick={handleBack}
-        className="absolute bottom-4 right-4 rounded-md bg-gray-600 hover:bg-gray-700 px-3 py-2 text-white shadow-sm"
+        className="block rounded-md px-3 py-2 shadow-sm text-white transition-colors duration-300 bg-green-600 hover:bg-green-700"
       >
         Back
       </button>

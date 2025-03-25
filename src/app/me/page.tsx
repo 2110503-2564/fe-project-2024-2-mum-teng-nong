@@ -1,4 +1,3 @@
-// app/me/page.tsx
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/authOptions"; 
 import getUserProfile from "@/libs/getUserProfile";
@@ -29,12 +28,15 @@ export default async function MePage() {
     const userData = userProfile.data; // เพิ่มบรรทัดนี้เพื่อความชัดเจน
 
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-100">
-        <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
-          <h1 className="text-2xl font-bold mb-4 text-center">User Profile</h1>
-          <div className="space-y-4">
-            <p><strong>Username:</strong> {userData.name || "N/A"}</p> {/* ใช้ name แทน username */}
-            <p><strong>Email:</strong> {userData.email || "N/A"}</p>
+      <div className="min-h-screen flex items-center justify-center bg-blue-900 p-6">
+        <div className="bg-white p-10 rounded-xl shadow-lg w-full max-w-md">
+          <h1 className="text-4xl font-bold mb-8 text-center text-gray-800">User Profile</h1>
+          <div className="space-y-6">
+            <p className="text-xl"><strong className="text-gray-700">Username:</strong> {userData.name || "N/A"}</p> 
+            <p className="text-xl"><strong className="text-gray-700">Email:</strong> {userData.email || "N/A"}</p>
+            <p className="text-xl"><strong className="text-gray-700">Phone:</strong> {userData.phonenum || "N/A"}</p>
+            <p className="text-xl"><strong className="text-gray-700">Sex:</strong> {userData.sex || "N/A"}</p>
+            <p className="text-xl"><strong className="text-gray-700">Role:</strong> {userData.role || "N/A"}</p>
           </div>
         </div>
       </div>
@@ -42,10 +44,10 @@ export default async function MePage() {
   } catch (error) {
     console.error("Error fetching user profile:", error);
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-100">
-        <div className="bg-red-100 p-6 rounded-lg shadow-md w-full max-w-md text-center">
-          <h1 className="text-xl font-bold text-red-600">Error</h1>
-          <p className="mt-2 text-red-700">
+      <div className="min-h-screen flex items-center justify-center bg-blue-400 p-6">
+        <div className="bg-white p-10 rounded-xl shadow-lg w-full max-w-md text-center">
+          <h1 className="text-4xl font-bold text-gray-800">Error</h1>
+          <p className="mt-6 text-xl text-gray-700">
             {error instanceof Error ? error.message : "Something went wrong"}
           </p>
         </div>
