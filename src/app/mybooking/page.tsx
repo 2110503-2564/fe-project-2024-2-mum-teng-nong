@@ -40,7 +40,7 @@ export default function MyBookingPage() {
         const token = session?.accessToken || session?.user?.token;
         if (!token) throw new Error("No token found in session");
 
-        const response = await fetch("http://localhost:5000/api/v1/appointments", {
+        const response = await fetch("https://backend-kn8m.onrender.com/api/v1/appointments", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -85,10 +85,10 @@ export default function MyBookingPage() {
 
     try {
       const token = session?.accessToken || session?.user?.token;
-      console.log("PUT URL:", `http://localhost:5000/api/v1/appointments/${editingAppt._id}`);
+      console.log("PUT URL:", `https://backend-kn8m.onrender.com/api/v1/appointments/${editingAppt._id}`);
       console.log("PUT Body:", JSON.stringify({ apptDate: newDate.toISOString() }));
 
-      const response = await fetch(`http://localhost:5000/api/v1/appointments/${editingAppt._id}`, {
+      const response = await fetch(`https://backend-kn8m.onrender.com/api/v1/appointments/${editingAppt._id}`, {
         method: "PUT", // เปลี่ยนจาก PATCH เป็น PUT
         headers: {
           "Content-Type": "application/json",
@@ -125,7 +125,7 @@ export default function MyBookingPage() {
 
     try {
       const token = session?.accessToken || session?.user?.token;
-      const response = await fetch(`http://localhost:5000/api/v1/appointments/${apptId}`, {
+      const response = await fetch(`https://backend-kn8m.onrender.com/api/v1/appointments/${apptId}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
