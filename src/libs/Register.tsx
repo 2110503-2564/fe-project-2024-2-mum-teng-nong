@@ -56,7 +56,7 @@ const Register: React.FC = () => {
     if (!validateForm()) return;
 
     try {
-      const response = await fetch('https://backend-gilt-five-89.vercel.app/v1/auth/register', {
+      const response = await fetch('https://backend-gilt-five-89.vercel.app/api/v1/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
